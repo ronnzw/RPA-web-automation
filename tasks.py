@@ -10,51 +10,35 @@ from robocorp.tasks import task
 from RPA.Browser.Selenium import Selenium
 
 
+ # Global variables 
 SITE_URL = "https://www.aljazeera.com/"
 SEARCH_PHRASE = "Israel"
 
-
 def _search():
     """
-    Opens the browser to the search page and
-    searches for th SEARCH_PHRASE to return an page object. 
-    """
+    Searches for news via the 'SEARCH_PHRASE' on aljazeera.com .
 
+    Returns:
+    obj: A page object with the news articles searched for.
+    """
     browser = Selenium(auto_close=False)
     browser.open_browser(SITE_URL,browser='firefox')
     browser.maximize_browser_window()
     browser.click_button('//*[@id="root"]/div/div[1]/div[1]/div/header/div[4]/div[2]/button')
     browser.press_key('//*[@id="root"]/div/div[1]/div[2]/div/div/form/div[1]/input',SEARCH_PHRASE)
     browser.click_button('//*[@id="root"]/div/div[1]/div[2]/div/div/form/div[2]/button')
-    sleep(10)
-    button_visibility = browser.does_page_contain_button('//*[@id="main-content-area"]/div[2]/div[2]/button')
-    #browser.scroll_element_into_view('//*[@id="main-content-area"]/div[2]/div[2]/button')
-    print(button_visibility)
-    while button_visibility:
-        print(f'-----{button_visibility}')
-        try:
-            print('Scroll')
-            #browser.scroll_element_into_view('//*[@id="main-content-area"]/div[2]/div[2]/button')
-            print('Before button click')
-            sleep(5)
-            browser.click_button_when_visible('id:onetrust-accept-btn-handler')
-            browser.click_button('//*[@id="main-content-area"]/div[2]/div[2]/button')
-            print('After button click')
-            
-            print('Button clicked')
-            button_visibility = browser.does_page_contain_button('//*[@id="main-content-area"]/div[2]/div[2]/button')
-        except Exception as e:
-            print(e)
-            pass
-
     return browser
-
-
 
 def _find_element_from_page(obj,loc) -> list:
     """
-    Takes a page object and a locator and returns a list of the 
-    elements located.
+    Finds elements specified from the page.
+
+    Parameters:
+    obj (object): A page object.
+    loc (locator): An element locator e.g. 'class:container' .
+
+    Returns:
+    list: A list of elements by locator name.
     """
     news_value = obj.find_elements(loc)
     news_list = [ item.text for item in news_value ]
@@ -62,7 +46,14 @@ def _find_element_from_page(obj,loc) -> list:
 
 def clean_date(lst):
     """
-    Takes one arg as list of dates and formats the date correctly.
+    Clean the date from the format Last updated 24 Apr 2024 Last updated 24 Apr 2024.
+    If a date doesn't exist the article is from today.
+
+    Parameter:
+    lst (list): A list of returns from date element class search
+
+    Returns:
+    list: A list of well formatted dates.
     """
     clean_date_list = []
     for dat in lst:
@@ -78,7 +69,7 @@ def clean_date(lst):
 
 def download_image(url, file_name):
     """
-    Takes an image url and a file_name then downloads the image.
+    Downloads images from image urls.
     """
     try:
         response = requests.get(url)
@@ -93,14 +84,19 @@ def download_image(url, file_name):
 
 def image_names(obj, output_path):
     """
-    Takes an object & file path and create a random name. 
-    It then returns a list of image names.
+    Create random names for the images.
+
+    Parameters:
+    obj (object): A browser page object.
+    output_path: A path to save the file
+
+    Returns:
+    list: A list of image names following the same index pattern
     """
     image_names = []
     for img in obj:
         image_link = img.get_attribute('src')
         random_string = ''.join(random.choices(string.ascii_letters + string.digits, k=6))
-        print(random_string)
         image_name = f"{output_path}/image_{random_string}.jpg"
         image_names.append(random_string)
         clean_links = image_link.strip('"')
@@ -112,13 +108,19 @@ def count_search_matches(list1 , list2):
     Matches the search phase and count the number of matches in 
     titles as well as summary and sum them together. It returns
     a list of total matched words.
+
+    Parameters:
+    list1 (lst): List of title elements
+    list2 (lst): List of summary elements
+
+    Returns:
+    lst: A list of total matched search phrase per article.
     """
     title_matches = [string.count(SEARCH_PHRASE) for string in list1]
     summary_matches = [string.count(SEARCH_PHRASE) for string in list2]
     # Add the items
     result = [x + y for x, y in zip(title_matches, summary_matches)]
     return result
-
 
 @task
 def get_news_task():
@@ -128,6 +130,7 @@ def get_news_task():
     title, summary, date, count and image name
     """
     browser = _search()
+
     # To allow site to load
     sleep(20)
 
@@ -149,11 +152,15 @@ def get_news_task():
     photo_names = image_names(image,output_path=output_path)
     photo_names = []
 
+    # Count search word matches
+    number_of_words = count_search_matches(clean_titles, clean_summary)
+
     news_dict = {
         'titles': clean_titles,
         'summary': clean_summary,
         'date': cleaned_date,
-        'image': photo_names
+        'image': photo_names,
+        'Word match': number_of_words
         }
     
     # Saving to excel
@@ -162,6 +169,7 @@ def get_news_task():
 
     # close the browser
     browser.close_browser()
+
 
 if __name__ == "__main__":
     get_news_task()
