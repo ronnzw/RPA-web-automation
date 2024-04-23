@@ -6,7 +6,6 @@ import string
 from datetime import datetime
 from time import sleep
 
-from robocorp import browser
 from robocorp.tasks import task
 from RPA.Browser.Selenium import Selenium
 
@@ -16,6 +15,11 @@ SEARCH_PHRASE = "Israel"
 
 
 def _search():
+    """
+    Opens the browser to the search page and
+    searches for th SEARCH_PHRASE to return an page object. 
+    """
+
     browser = Selenium(auto_close=False)
     browser.open_browser(SITE_URL,browser='firefox')
     browser.maximize_browser_window()
@@ -48,11 +52,18 @@ def _search():
 
 
 def _find_element_from_page(obj,loc) -> list:
+    """
+    Takes a page object and a locator and returns a list of the 
+    elements located.
+    """
     news_value = obj.find_elements(loc)
     news_list = [ item.text for item in news_value ]
     return  news_list
 
 def clean_date(lst):
+    """
+    Takes one arg as list of dates and formats the date correctly.
+    """
     clean_date_list = []
     for dat in lst:
         if len(dat) == 0:
@@ -66,6 +77,9 @@ def clean_date(lst):
     return clean_date_list
 
 def download_image(url, file_name):
+    """
+    Takes an image url and a file_name then downloads the image.
+    """
     try:
         response = requests.get(url)
         if response.status_code == 200:
@@ -78,6 +92,10 @@ def download_image(url, file_name):
         return e
 
 def image_names(obj, output_path):
+    """
+    Takes an object & file path and create a random name. 
+    It then returns a list of image names.
+    """
     image_names = []
     for img in obj:
         image_link = img.get_attribute('src')
@@ -90,15 +108,27 @@ def image_names(obj, output_path):
     return image_names
 
 def count_search_matches(list1 , list2):
+    """
+    Matches the search phase and count the number of matches in 
+    titles as well as summary and sum them together. It returns
+    a list of total matched words.
+    """
     title_matches = [string.count(SEARCH_PHRASE) for string in list1]
     summary_matches = [string.count(SEARCH_PHRASE) for string in list2]
     # Add the items
     result = [x + y for x, y in zip(title_matches, summary_matches)]
     return result
 
+
 @task
-def minimal_task():
+def get_news_task():
+    """ 
+    Main function that searches a word on aljazeera.com 
+    It then returns the files of excel file of:
+    title, summary, date, count and image name
+    """
     browser = _search()
+    # To allow site to load
     sleep(20)
 
     # Getting data
@@ -114,9 +144,9 @@ def minimal_task():
     #file path
     output_path = os.path.join(os.getcwd(),'output')
 
-    # image
-    #image = browser.find_elements('class:article-card__image')
-    #photo_names = image_names(image,output_path=output_path)
+    # Download & save images
+    image = browser.find_elements('class:article-card__image')
+    photo_names = image_names(image,output_path=output_path)
     photo_names = []
 
     news_dict = {
@@ -130,8 +160,9 @@ def minimal_task():
     df = pd.DataFrame(news_dict,index=None)
     df.to_excel(f"{output_path}/data.xlsx",index=False)
 
+    # close the browser
     browser.close_browser()
 
 if __name__ == "__main__":
-    minimal_task()
+    get_news_task()
 
