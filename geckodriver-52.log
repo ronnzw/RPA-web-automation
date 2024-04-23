@@ -1,0 +1,26 @@
+1713771263583	geckodriver	INFO	Listening on 127.0.0.1:52017
+1713771264075	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/6p/46zpmrn90dv7gnw6wt9jt4z80000gn/T/rust_mozprofileUXc9hw"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1713771264838	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1713771265538	Marionette	INFO	Listening on port 52041
+Read port: 52041
+WebDriver BiDi listening on ws://127.0.0.1:52018
+1713771266043	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:52018/devtools/browser/e2fabf8f-b1ac-462d-83e3-697a8d753bce
+JavaScript error: https://vid.vidoomy.com/sync?gdpr=&gdpr_consent=&us_privacy={{US_PRIVACY}}&redirect=https%3A%2F%2Fssp.api.tappx.com%2Fcs%2Fusync%3Fidmn%3D380%26type%3Diframe%26id%3D%7B%7BVID%7D%7D%26auxuid%3D, line 4: TypeError: (destructured parameter) is undefined
+1713771276362	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1713771279701	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.aljazeera.com."
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1713771294951	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/tXhR5WxKMkfxhPR3Ieicu84_GDeFDNUHyibK8QhzoCs.js line 2 > eval line 7265 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1713771315177	Marionette	INFO	Stopped listening on port 52041
+JavaScript warning: https://vid.vidoomy.com/sync?gdpr=&gdpr_consent=&us_privacy={{US_PRIVACY}}&redirect=https%3A%2F%2Fssp.api.tappx.com%2Fcs%2Fusync%3Fidmn%3D380%26type%3Diframe%26id%3D%7B%7BVID%7D%7D%26auxuid%3D, line 4: Script terminated by timeout at:
+i@https://vid.vidoomy.com/sync?gdpr=&gdpr_consent=&us_privacy={{US_PRIVACY}}&redirect=https%3A%2F%2Fssp.api.tappx.com%2Fcs%2Fusync%3Fidmn%3D380%26type%3Diframe%26id%3D%7B%7BVID%7D%7D%26auxuid%3D:4:5711
+
+JavaScript warning: https://www.gstatic.com/recaptcha/releases/rz4DvU-cY2JYCwHSTck0_qm-/recaptcha__en.js, line 1020: Script terminated by timeout at:
+@https://www.gstatic.com/recaptcha/releases/rz4DvU-cY2JYCwHSTck0_qm-/recaptcha__en.js:1020:471
+

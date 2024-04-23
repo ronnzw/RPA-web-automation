@@ -1,0 +1,58 @@
+1713564021377	geckodriver	INFO	Listening on 127.0.0.1:56944
+1713564021898	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/6p/46zpmrn90dv7gnw6wt9jt4z80000gn/T/rust_mozprofile9oT3FZ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1713564022304	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1713564022712	Marionette	INFO	Listening on port 56958
+Read port: 56958
+WebDriver BiDi listening on ws://127.0.0.1:56945
+1713564022858	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56945/devtools/browser/ad956540-6fcc-46b9-bc1e-c1317cbe7ceb
+1713564053478	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.aljazeera.com."
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/tXhR5WxKMkfxhPR3Ieicu84_GDeFDNUHyibK8QhzoCs.js line 2 > eval line 1378 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878, line 24: Script terminated by timeout at:
+aO.prototype.log@https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878:24:311290
+aO.prototype.info@https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878:24:312418
+Im@https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878:24:60694
+Jm@https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878:24:60879
+dp/this.updateTargetingFromMap<@https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878:24:290232
+bm/<@https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878:24:58530
+L/<@https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878:24:58157
+8621/e.setTargetingForGPT/</<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:124383
+8621/e.setTargetingForGPT/<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:124124
+8621/e.setTargetingForGPT@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:124061
+9608/L.setTargetingForGPTAsync@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:102106
+Nr/l/<@https://a.pub.network/core/pubfig/5.46.0/pubfig.engine.js:1:153905
+rp.prototype.push@https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878:24:300870
+bm/<@https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878:24:58530
+L/<@https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202404160101/pubads_impl.js?cb=31082878:24:58157
+l@https://a.pub.network/core/pubfig/5.46.0/pubfig.engine.js:1:152610
+a@https://a.pub.network/core/pubfig/5.46.0/pubfig.engine.js:1:151939
+bidsBackHandler@https://a.pub.network/core/pubfig/5.46.0/pubfig.engine.js:1:154778
+h@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:104520
+5686/R/tn/<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:37719
+5686/x<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:41733
+tn@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:37609
+rn@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:38025
+m@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:39245
+5686/R/an/run/adapterDone/<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:39471
+8792/value/<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:149892
+c@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:149667
+8792/value/<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:149717
+n@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:149379
+value@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:149520
+value@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:149863
+adapterDone@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:39442
+I@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:27798
+9128/f/<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:146763
+4358/Un/<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:137987
+4699/B</</l<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:28850
+R@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:60652
+3193/callbackWithBidder/y/y@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:61624
+8928/v/<@https://a.pub.network/core/prebid-analytics-8.30.5.js:5:35700
+
+1713564358251	Marionette	INFO	Stopped listening on port 56958
